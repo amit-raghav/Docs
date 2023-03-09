@@ -23,25 +23,25 @@ By default, pre-authentication is (**disabled**) in the Ditto [gateway](https://
 
 When it is enabled, the reverse proxy has to set the HTTP header x-ditto-pre-authenticated.
 
-The format of the “pre-authenticated” string is: (<issuers>:<subjects>).The issuer defines which system authenticated the user and the subject contains e.g. the user-id or -name.
+The format of the “pre-authenticated” string is : < issuers > : < subjects > .The issuer defines which system authenticated the user and the subject contains e.g. the user-id or -name.
   
 This string must then be used in [policies](https://www.eclipse.org/ditto/basic-policy.html#subjects) as “Subject ID”.
   
 Example for a nginx “proxy” configuration:
   
-auth_basic                    "Authentication required";
+auth_basic                                  "Authentication required";
   
-auth_basic_user_file          nginx.htpasswd;
+auth_basic_user_file                         nginx.htpasswd;
   
 ...
   
-proxy_set_header              x-ditto-pre-authenticated "nginx:${remote_user}";
+proxy_set_header                              x-ditto-pre-authenticated "nginx:${remote_user}";
 
 
 Subjects in a policy define who gets permissions granted/revoked on the [resources](https://www.eclipse.org/ditto/basic-policy.html#which-resources-can-be-controlled) of a policy entry.
   
 Each subject ID contains a prefix defining the subject “issuer” (so which party issued the authentication) and an actual subject, separated with a colon:
-(** <subject-issuer>:<subject> **)
+ < subject-issuer >:< subject >
 
 The subject can be one of the following ones:
   
