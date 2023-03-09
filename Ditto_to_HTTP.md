@@ -1,5 +1,5 @@
 
-# Connection between Ditto to HTTP 
+# Connection between Ditto to HTTP <script>
 
 ## Screenshots
 
