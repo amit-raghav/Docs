@@ -34,9 +34,9 @@ Subjects in a policy define who gets permissions granted/revoked on the resource
   
 Each subject ID contains a prefix defining the subject “issuer” (so which party issued the authentication) and an actual subject, separated with a colon:
   
-&#42;subject-issuer&#42;:&#42;subject&#42;
+  <subject-issuer>:<subject>;
 
 The subject can be one of the following ones:
   
-- nginx:&#42;nginx-username&#42; - when using nginx as [pre-authentication provider](https://www.eclipse.org/ditto/installation-operating.html#pre-authentication) - by default enabled in the Ditto installation’s nginx
-- &#42;other-pre-auth-provider&#42;:&#42;username&#42; - when using another custom provider as [pre-authentication provider](https://www.eclipse.org/ditto/installation-operating.html#pre-authentication) which sets the x-ditto-pre-authenticated HTTP header
+- nginx:<nginx-username> - when using nginx as [pre-authentication provider](https://www.eclipse.org/ditto/installation-operating.html#pre-authentication) - by default enabled in the Ditto installation’s nginx
+- <other-pre-auth-provider>:<username> - when using another custom provider as [pre-authentication provider](https://www.eclipse.org/ditto/installation-operating.html#pre-authentication) which sets the x-ditto-pre-authenticated HTTP header
