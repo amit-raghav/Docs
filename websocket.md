@@ -19,7 +19,7 @@ HTTP API calls to Ditto may be authenticated with a reverse proxy (e.g. a nginx)
 - passes the authenticated username as HTTP header
 - ensures that this HTTP header can never be written by the end-user
 
-By default, pre-authentication is disabled in the Ditto [gateway](https://www.eclipse.org/ditto/architecture-services-gateway.html) services. It can however be enabled by configuring the environment variable ENABLE_PRE_AUTHENTICATION to the value true.
+By default, pre-authentication is (**disabled**) in the Ditto [gateway](https://www.eclipse.org/ditto/architecture-services-gateway.html) services. It can however be enabled by configuring the environment variable ENABLE_PRE_AUTHENTICATION to the value true.
 
 When it is enabled, the reverse proxy has to set the HTTP header x-ditto-pre-authenticated.
 
@@ -40,7 +40,7 @@ proxy_set_header              x-ditto-pre-authenticated "nginx:${remote_user}";
 Subjects in a policy define who gets permissions granted/revoked on the [resources](https://www.eclipse.org/ditto/basic-policy.html#which-resources-can-be-controlled) of a policy entry.
   
 Each subject ID contains a prefix defining the subject “issuer” (so which party issued the authentication) and an actual subject, separated with a colon:
-<subject-issuer>:<subject>
+(** <subject-issuer>:<subject> **)
 
 The subject can be one of the following ones:
   
