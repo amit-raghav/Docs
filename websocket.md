@@ -34,7 +34,7 @@ Subjects in a policy define who gets permissions granted/revoked on the resource
   
 Each subject ID contains a prefix defining the subject “issuer” (so which party issued the authentication) and an actual subject, separated with a colon:
   
-  <subject-issuer>:<subject>;
+  -<subject-issuer>:<subject>;
 
 The subject can be one of the following ones:
   
