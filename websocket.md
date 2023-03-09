@@ -1,7 +1,7 @@
-                          # Basic Authentication
+# Basic Authentication
 
-Note: In order to use both authentication methods we need 
-Authentication
+#### Note: In order to use both authentication methods we need 
+# Authentication
 User authentication at the HTTP API
 A user who calls the HTTP API can be authenticated using two mechanisms:
 Pre-authentication by an HTTP reverse proxy in front of Ditto, e.g. doing HTTP BASIC Authentication by providing username and password.
@@ -47,9 +47,9 @@ nginx:<nginx-username> - when using nginx as pre-authentication provider - by de
 
 
 
-                                JWT Authentication
+# JWT Authentication
 
-OpenID Connect
+# OpenID Connect
 The authentication provider must be added to the ditto-gateway configuration with a unique configuration key (e.g. myprovier in the example below).
 Either issuer as a single supported JWT "iss" claim or issuers (as a list of supported JWT "iss" claims) has to be configured. If the issuer is configured, this list has priority and the value configured in issuer will be ignored.
 The configured auth-subjects, an optional field, takes a list of placeholders that will be evaluated against incoming JWTs.
