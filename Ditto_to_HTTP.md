@@ -137,7 +137,7 @@ For a detailed introduction into SSEs, please visit the [HTML5 specification](ht
 ### References
 [Source Code](https://www.baeldung.com/java-ee-jax-rs-sse,"Ref")
 
-# on-hold
+# ON-HOLD
 - Implementation by webflux
 - RQL
 
