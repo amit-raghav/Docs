@@ -9,7 +9,7 @@ User authentication at the HTTP API
 A user who calls the HTTP API can be authenticated using two mechanisms:
 
 - Pre-authentication by an HTTP reverse proxy in front of Ditto, e.g. doing HTTP BASIC Authentication by providing username and password.
-- A JWT issued by Google or other OpenID Connect providers.
+- A [JWT](https://www.eclipse.org/ditto/basic-auth.html#) issued by Google or other OpenID Connect providers.
 
 # Pre-authentication
 
