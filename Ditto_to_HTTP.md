@@ -16,6 +16,9 @@ At the Ditto API there are different ways for getting notified of such events:
 ## Server sent events
 [Reference](/https://www.eclipse.org/ditto/basic-changenotifications.html "ref")
 
+### Connection
+[connection details](https://www.eclipse.org/ditto/docson/index.html#../jsonschema/connection.json$$expand)
+
 ### Establishing connecting to an HTTP endpoint
 #### Important attributes in connection
         "connectionType": "http-push",
@@ -126,11 +129,7 @@ At the Ditto API there are different ways for getting notified of such events:
 - Amit Raghav
 
 
-## Roadmap
 
-- Additional browser support
-
-- Add more integrations
 
 
 
