@@ -14,6 +14,9 @@ At the Ditto API there are different ways for getting notified of such events:
 - Via an established connection in the connectivity service
 
 ## Server sent events
+#### Server-Sent Events are unidirectional originating from the back-end towards the client. Via SSEs the client can only be notified, it cannot send data back (it can use plain HTTP for that).
+
+For a detailed introduction into SSEs, please visit the [HTML5 specification](https://html.spec.whatwg.org/multipage/server-sent-events.html).
 [Reference](/https://www.eclipse.org/ditto/basic-changenotifications.html "ref")
 
 ### Connection
