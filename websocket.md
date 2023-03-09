@@ -16,7 +16,7 @@ By default, pre-authentication is disabled in the Ditto [gateway](https://www.ec
 
 When it is enabled, the reverse proxy has to set the HTTP header x-ditto-pre-authenticated.
 
-The format of the “pre-authenticated” string is: <issuer>:&#42;subject&#42;. The issuer defines which system authenticated the user and the subject contains e.g. the user-id or -name.
+The format of the “pre-authenticated” string is: <issuer>:<subject>. The issuer defines which system authenticated the user and the subject contains e.g. the user-id or -name.
   
 This string must then be used in [policies](https://www.eclipse.org/ditto/basic-policy.html#subjects) as “Subject ID”.
   
