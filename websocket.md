@@ -28,25 +28,26 @@ The format of the “pre-authenticated” string is : < issuers > : < subjects >
 This string must then be used in [policies](https://www.eclipse.org/ditto/basic-policy.html#subjects) as “Subject ID”.
   
 Example for a nginx “proxy” configuration:
-  
-auth_basic                                  "Authentication required";
-  
-auth_basic_user_file                         nginx.htpasswd;
-  
-...
-  
-proxy_set_header                              x-ditto-pre-authenticated "nginx:${remote_user}";
 
+| auth_basic        | "Authentication required";          | 
+| ------------- |:-------------:|
+| auth_basic_user_file      | nginx.htpasswd; |
+| ...       |       |
+| proxy_set_header |  x-ditto-pre-authenticated "nginx:${remote_user}";      |
 
-Subjects in a policy define who gets permissions granted/revoked on the [resources](https://www.eclipse.org/ditto/basic-policy.html#which-resources-can-be-controlled) of a policy entry.
+ 
+
+Subjects in a policy define **who** gets permissions granted/revoked on the [resources](https://www.eclipse.org/ditto/basic-policy.html#which-resources-can-be-controlled) of a policy entry.
   
 Each subject ID contains a prefix defining the subject “issuer” (so which party issued the authentication) and an actual subject, separated with a colon:
+ 
  < subject-issuer >:< subject >
 
 The subject can be one of the following ones:
   
-nginx:<nginx-username> - when using nginx as [pre-authentication provider](https://www.eclipse.org/ditto/installation-operating.html#pre-authentication) - by default enabled in the Ditto installation’s nginx
-<other-pre-auth-provider>:<username> - when using another custom provider as [pre-authentication provider](https://www.eclipse.org/ditto/installation-operating.html#pre-authentication) which sets the x-ditto-pre-authenticated HTTP header
+- nginx:< nginx-username > - when using nginx as [pre-authentication provider](https://www.eclipse.org/ditto/installation-operating.html#pre-authentication)  by default enabled in the Ditto installation’s nginx
+  
+- < other-pre-auth-provider >:< username > - when using another custom provider as [pre-authentication provider](https://www.eclipse.org/ditto/installation-operating.html#pre-authentication) which sets the x-ditto-pre-authenticated HTTP header
 
 
 
@@ -77,43 +78,44 @@ The configured auth-subjects, an optional field, takes a list of placeholders th
 For each entry in auth-subjects an authorization subject will be generated. If the entry contains unresolvable placeholders, it will be ignored in full. When auth-subjects is not provided, the "sub" claim ({{ jwt:sub }}) is used by default.
   
 Please read more details on the OpenId Connect configuration placeholder to find out what is possible when defining the auth-subjects.
-  
-  ditto.gateway.authentication {
-      oauth {
-        openid-connect-issuers = {
-          myprovider = {
-            issuer = "localhost:9000"
-            #issuers = [
-            #  "localhost:9000/one"
-            #  "localhost:9000/two"
-            #]
-            auth-subjects = [
-              "{{ jwt:sub }}",
-              "{{ jwt:sub }}/{{ jwt:scp }}",
-              "{{ jwt:sub }}/{{ jwt:scp }}@{{ jwt:client_id }}",
-              "{{ jwt:sub }}/{{ jwt:scp }}@{{ jwt:non_existing }}",
-              "{{ jwt:roles/support }}"
-            ]
+
+    ditto.gateway.authentication {
+        oauth {
+          openid-connect-issuers = {
+            myprovider = {
+              issuer = "localhost:9000"
+              #issuers = [
+              #  "localhost:9000/one"
+              #  "localhost:9000/two"
+              #]
+              auth-subjects = [
+                "{{ jwt:sub }}",
+                "{{ jwt:sub }}/{{ jwt:scp }}",
+                "{{ jwt:sub }}/{{ jwt:scp }}@{{ jwt:client_id }}",
+                "{{ jwt:sub }}/{{ jwt:scp }}@{{ jwt:non_existing }}",
+                "{{ jwt:roles/support }}"
+              ]
+            }
           }
         }
-      }
-  }
+    }
 
-### Note: The issuer must not include the http:// or https:// prefix as this is added based on the configuration value of ditto.gateway.authentication.oauth.protocol.
+
+**Note** : The issuer must not include the http:// or https:// prefix as this is added based on the configuration value of ditto.gateway.authentication.oauth.protocol.
   
 The configured subject-issuer will be used to prefix the value of each individual auth-subject.
   
-  {
-    "subjects": {
-      "<provider>:<auth-subject-0>": {
-        "type": "generated"
-      },
-      ...
-      "<provider>:<auth-subject-n>": {
-        "type": "generated"
+      {
+        "subjects": {
+          "<provider>:<auth-subject-0>": {
+            "type": "generated"
+          },
+          ...
+          "<provider>:<auth-subject-n>": {
+            "type": "generated"
+          }
+        }
       }
-    }
-  }
 
 As of the OAuth2.0 and OpenID Connect standards Ditto expects the headers Authorization: Bearer <JWT> and Content-Type: application/json, containing the issued token of the provider.
 
