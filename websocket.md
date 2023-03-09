@@ -13,7 +13,7 @@ passes the authenticated username as HTTP header
 ensures that this HTTP header can never be written by the end-user
 By default, pre-authentication is disabled in the Ditto gateway services. It can however be enabled by configuring the environment variable ENABLE_PRE_AUTHENTICATION to the value true.
 When it is enabled, the reverse proxy has to set the HTTP header x-ditto-pre-authenticated.
-The format of the “pre-authenticated” string is: <issuer>:<subject>. The issuer defines which system authenticated the user and the subject contains e.g. the user-id or -name.
+The format of the “pre-authenticated” string is: <issuers>:<subjects>. The issuer defines which system authenticated the user and the subject contains e.g. the user-id or -name.
 This string must then be used in policies as “Subject ID”.
 Example for a nginx “proxy” configuration:
 auth_basic                    "Authentication required";
