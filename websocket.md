@@ -120,3 +120,6 @@ The configured subject-issuer will be used to prefix the value of each individua
 As of the OAuth2.0 and OpenID Connect standards Ditto expects the headers Authorization: Bearer <JWT> and Content-Type: application/json, containing the issued token of the provider.
 
 ### The token has to be issued beforehand. The required logic is not provided by Ditto
+  
+ # Author
+  #### Om Shukla
