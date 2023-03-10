@@ -3,7 +3,7 @@
 #
 ## Screenshots
 
-![App Screenshot](ditto-overview-1.png)
+![App Screenshot](images/ditto-overview-1.png)
 <!--
 ![App Screenshot](https://www.eclipse.org/ditto/images/ditto-overview-1.png)-->
 
